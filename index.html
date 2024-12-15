@@ -7,78 +7,91 @@
     <title>Stafford Yerger Presentations</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background: #f5f5f5;
+            background: #f0f4f8;
+            color: #333;
         }
 
         header {
-            background: #333;
+            background: linear-gradient(to right, #1b1b38, #34495e);
             color: #fff;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
         }
 
         h1 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 40px auto;
             background: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .container p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
         .pdf-list {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: space-between;
         }
 
         .pdf-item {
-            flex: 1 1 calc(33% - 20px);
-            min-width: 200px;
-            max-width: 250px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+            flex: 1 1 calc(32% - 20px);
+            background: #f9fafc;
+            border: 1px solid #dce1e6;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
-            transition: box-shadow 0.3s ease-in-out;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .pdf-item:hover {
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-        }
-
-        .pdf-item img {
-            max-width: 100%;
-            height: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
         }
 
         .pdf-title {
-            padding: 10px;
+            padding: 15px;
             font-size: 1rem;
-            font-weight: bold;
-            background: #eee;
-            border-bottom: 1px solid #ddd;
+            font-weight: 500;
+            background: #e9ecf1;
+            border-bottom: 1px solid #dce1e6;
         }
 
         .pdf-actions {
-            padding: 10px;
+            padding: 20px;
         }
 
         .view-btn {
             display: inline-block;
-            padding: 8px 12px;
-            background: #333;
+            padding: 10px 15px;
+            background: #2980b9;
             color: #fff;
             text-decoration: none;
             border-radius: 4px;
             font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .view-btn:hover {
+            background: #1f6691;
         }
 
         .pdf-viewer {
@@ -89,6 +102,8 @@
             display: none;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .pdf-viewer iframe {
@@ -96,6 +111,7 @@
             height: 80%;
             border: none;
             background: #fff;
+            border-radius: 4px;
         }
 
         .close-viewer {
@@ -106,11 +122,21 @@
             font-weight: bold;
             color: #fff;
             cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        @media(max-width: 600px){
+        .close-viewer:hover {
+            transform: scale(1.2);
+            color: #f0f4f8;
+        }
+
+        @media(max-width: 600px) {
             .pdf-item {
                 flex: 1 1 100%;
+            }
+            .pdf-viewer iframe {
+                width: 90%;
+                height: 80%;
             }
         }
     </style>
@@ -122,7 +148,7 @@
 </header>
 
 <div class="container">
-    <p>Below are three presentations in PDF format. Click "View" to preview them directly on this page.</p>
+    <p>Below are three presentations in PDF format. Click "View" to preview them directly on this page. These presentations highlight my work and research potential as I pursue graduate (PhD) opportunities.</p>
     <div class="pdf-list">
         <div class="pdf-item">
             <div class="pdf-title">Investigation of Geometric Properties of Pulmonary Vascular Supply Poster</div>
@@ -171,7 +197,6 @@
         iframe.src = '';
     });
 
-    // Close viewer when background clicked (optional)
     pdfViewer.addEventListener('click', e => {
         if (e.target === pdfViewer) {
             pdfViewer.style.display = 'none';
@@ -182,3 +207,4 @@
 
 </body>
 </html>
+
